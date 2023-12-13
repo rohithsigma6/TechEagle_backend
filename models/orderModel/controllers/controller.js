@@ -14,9 +14,22 @@ module.exports.GetOrders = async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   };
+  module.exports.GetOrderDetails = async (req, res) => {
+    try {
+     
+      const order = await Order.find({_id:req.body._id}).populate('products.product');
+   
+     return res.json({ success: true, message: "fetched successfully" ,order:order})
+      
+    } catch (error) {
+     
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  };
+
 
 module.exports.CreateOrder = async (req, res) => {
-console.log("!!!!!!")
+
     try {
      const userDetails = await User.findOne({phoneNumber:req.body.userId})
       
