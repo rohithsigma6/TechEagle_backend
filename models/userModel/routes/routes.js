@@ -4,4 +4,6 @@ const {verifyUser}= require('../../../middlewares/auth')
 router.post('/register',controller.Register)
 router.post('/login',controller.Login)
 router.post('/getuser',controller.GetUser)
+router.get('/getallusers',controller.GetAllUsers)
 module.exports = router
+    

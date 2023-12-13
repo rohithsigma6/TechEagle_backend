@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 module.exports.Register = async (req, res) => {
- 
     try {
         console.log(req.body)
         const isUserRegistered = await User.findOne({ "phoneNumber": req.body.phoneNumber})
